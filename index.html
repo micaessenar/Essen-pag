@@ -212,12 +212,49 @@
     .section-title span {
       color: var(--primary);
     }
-      /* --- FONDO FIJO PARA TODA LA PÁGINA (Beneficios, Catálogo, Ahorro, Contacto) --- */
+        /* --- FONDO FIJO ACTUALIZADO (Incluye la nueva sección COMBOS) --- */
     
-    #beneficios, #catalogo, #ahorro, #contacto {
+    #beneficios, #catalogo, #combos, #ahorro, #contacto {
       position: relative;
       padding: 5rem 2rem;
       
+      /* La misma foto de fondo para todos */
+      background-image: url('fondo_perfil.jpg');
+      
+      /* EFECTO MÁGICO: La foto se queda quieta mientras bajas */
+      background-attachment: fixed; 
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    /* Capa Crema Transparente para TODAS las secciones */
+    #beneficios::before, 
+    #catalogo::before,
+    #combos::before,   /* <--- AGREGADO AQUÍ */
+    #ahorro::before, 
+    #contacto::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      /* Color crema con transparencia */
+      background-color: rgba(244, 241, 222, 0.85); 
+      z-index: 1;
+    }
+
+    /* Esto asegura que el texto y los productos queden ENCIMA de la foto */
+    #beneficios > *, 
+    #catalogo > *, 
+    #combos > *,      /* <--- AGREGADO AQUÍ */
+    #ahorro > *, 
+    #contacto > * {
+      position: relative;
+      z-index: 2;
+    }
+ 
       /* La misma foto de fondo para todos */
       background-image: url('fondo_perfil.jpg');
       
@@ -854,6 +891,14 @@
         </div>
       </div>
 
+   
+    </div>
+  </section>
+    <section id="combos">
+    <h2 class="section-title">Combos <span>Imperdibles</span></h2>
+    
+    <div class="products-grid">
+      
       <div class="product-card">
         <img src="set.jpg" alt="Set Completo Essen" class="product-image" onerror="this.src='https://via.placeholder.com/300x220?text=Set+Completo'">
         <div class="product-info">
@@ -863,14 +908,7 @@
           <a href="https://wa.me/+549 11 6570-6324?text=Hola!%20Quiero%20info%20y%20precio%20del%20Combo%20Practico" class="btn-secondary" target="_blank">Consultar Precio</a>
         </div>
       </div>
-
-    </div>
-  </section>
-    <section id="combos">
-    <h2 class="section-title">Combos <span>Imperdibles</span></h2>
-    
-    <div class="products-grid">
-      
+   
       <div class="product-card">
         <img src="combo_nuit.jpg" alt="Combo Nuit Pro Essen" class="product-image" onerror="this.src='https://via.placeholder.com/300x220?text=Combo+Nuit'">
         <div class="product-info">
