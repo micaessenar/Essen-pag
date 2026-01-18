@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Essen - Cociná con Amor y Ahorrá en tu Factura</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* CSS Reset & Variables */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #E07A5F;
+      --primary-dark: #c96a52;
+      --text: #3D405B;
+      --background: #F4F1DE;
+      --white: #ffffff;
+      --shadow: 0 4px 20px rgba(61, 64, 91, 0.1);
+      --shadow-hover: 0 8px 30px rgba(61, 64, 91, 0.15);
+      --radius: 12px;
+      --whatsapp: #25D366;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+      padding-bottom: 50px;
+    }
+
+    /* Sticky Navbar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      background: var(--white);
+      box-shadow: var(--shadow);
+      z-index: 100;
+      padding: 1rem 2rem;
+    }
+
+    .navbar-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .logo span {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 500;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .mobile-menu-btn span {
+      display: block;
+      width: 25px;
+      height: 3px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+  #42445A
+
+    /* Section Styles */
+    section {
+      padding: 5rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    /* Estilos de la Nueva Hero Section */
+    .hero {
+      position: relative;
+      min-height: 85vh; /* Altura de la pantalla */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      overflow: hidden;
+      
+      /* IMAGEN DE FONDO */
+      background-image: url('image_1.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    /* La capa oscura para que el texto resalte (Overlay) */
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.7)); /* Oscuro arriba y abajo */
+      z-index: 1;
+    }
+
+    /* El contenedor del texto */
+    .hero-content {
+      position: relative;
+      z-index: 2; /* Para estar encima de la capa oscura */
+      max-width: 800px;
+    }
+
+    /* El Título Principal */
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem); /* Grande y adaptable */
+      font-weight: 800;
+      margin-bottom: 1rem;
+      color: #ffffff; /* BLANCO PURO */
+      text-shadow: 0 4px 20px rgba(0,0,0, 0.9); /* Sombra negra fuerte */
+      line-height: 1.1;
+    }
+
+    /* El Subtítulo */
+    .hero p {
+      font-size: clamp(1.2rem, 3vw, 1.6rem);
+      margin-bottom: 2.5rem;
+      color: #f0f0f0; /* Blanco suave */
+      text-shadow: 0 2px 10px rgba(0,0,0, 0.9); /* Sombra negra */
+      font-weight: 500;
+    }
+
+    /* Botón especial del Hero */
+    .btn-hero {
+      display: inline-block;
+      padding: 1rem 3rem;
+      background-color: #E07A5F; /* Tu color naranja Essen */
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.2rem;
+      border-radius: 50px; /* Bordes bien redondos */
+      box-shadow: 0 4px 15px rgba(224, 122, 95, 0.5); /* Sombra naranja */
+      transition: transform 0.3s ease;
+    }
+
+    .btn-hero:hover {
+      transform: scale(1.05); /* Efecto zoom al tocar */
+      background-color: #d66a4e;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      font-weight: 700;
+      margin-bottom: 3rem;
+      color: var(--text);
+    }
+
+    .section-title span {
+      color: var(--primary);
+    }
+      /* --- FONDO FIJO PARA TODA LA PÁGINA (Beneficios, Catálogo, Ahorro, Contacto) --- */
+    
+    #beneficios, #catalogo, #ahorro, #contacto {
+      position: relative;
+      padding: 5rem 2rem;
+      
+      /* La misma foto de fondo para todos */
+      background-image: url('fondo_perfil.jpg');
+      
+      /* EFECTO MÁGICO: La foto se queda quieta mientras bajas */
+      background-attachment: fixed; 
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    /* Capa Crema Transparente para TODAS las secciones */
+    #beneficios::before, 
+    #catalogo::before, 
+    #ahorro::before, 
+    #contacto::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      /* Color crema con transparencia */
+      background-color: rgba(244, 241, 222, 0.85); 
+      z-index: 1;
+    }
+
+    /* Esto asegura que el texto y los productos queden ENCIMA de la foto */
+    #beneficios > *, 
+    #catalogo > *, 
+    #ahorro > *, 
+    #contacto > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Benefits Grid */
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .benefit-card {
+      background: var(--white);
+      padding: 2.5rem;
+      border-radius: var(--radius);
+      text-align: center;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+    }
+
+    .benefit-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .benefit-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+    }
+
+    .benefit-icon svg {
+      width: 40px;
+      height: 40px;
+      fill: var(--white);
+    }
+
+    .benefit-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.75rem;
+      color: var(--text);
+    }
+
+    .benefit-card p {
+      color: #6b6e8a;
+      font-size: 0.95rem;
+    }
+
+    /* Product Showcase */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+    }
+
+    .product-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .product-image {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      background: #e8e5d8;
+    }
+
+    .product-info {
+      padding: 1.5rem;
+    }
+
+    .product-info h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .product-price {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .btn-secondary {
+      display: block;
+      width: 100%;
+      padding: 0.875rem;
+      background: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+      border-radius: var(--radius);
+      font-weight: 600;
+      text-align: center;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .btn-secondary:hover {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    /* Calculator Section */
+    .calculator-section {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 3rem;
+      box-shadow: var(--shadow);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .calculator-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .form-group label {
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .form-group input {
+      padding: 1rem;
+      border: 2px solid #e0ddd0;
+      border-radius: var(--radius);
+      font-size: 1rem;
+      font-family: inherit;
+      transition: border-color 0.3s ease;
+    }
+
+    .form-group input:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+
+    .result-box {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: var(--white);
+      padding: 2rem;
+      border-radius: var(--radius);
+      text-align: center;
+      display: none;
+    }
+
+    .result-box.show {
+      display: block;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .result-box .amount {
+      font-size: 2.5rem;
+      font-weight: 800;
+      display: block;
+      margin-top: 0.5rem;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--text);
+      color: var(--white);
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .social-links a {
+      width: 50px;
+      height: 50px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+      background: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    .social-links svg {
+      width: 24px;
+      height: 24px;
+      fill: var(--white);
+    }
+
+    .footer p {
+      opacity: 0.8;
+      font-size: 0.9rem;
+    }
+
+    /* Floating WhatsApp Button */
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 80px;
+      right: 25px;
+      width: 60px;
+      height: 60px;
+      background: var(--whatsapp);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+      z-index: 99;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .whatsapp-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+    }
+
+    .whatsapp-btn svg {
+      width: 32px;
+      height: 32px;
+      fill: var(--white);
+    }
+
+    /* Promo Ticker */
+    .promo-ticker {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(90deg, var(--primary), #d96850);
+      color: var(--white);
+      padding: 0.75rem 0;
+      z-index: 1000;
+      overflow: hidden;
+    }
+
+    .ticker-content {
+      display: inline-block;
+      white-space: nowrap;
+      animation: marquee 20s linear infinite;
+      padding-left: 100%;
+    }
+
+    .ticker-content span {
+      display: inline-block;
+      padding: 0 3rem;
+      font-weight: 500;
+    }
+
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 1rem;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: var(--white);
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem;
+        gap: 1.5rem;
+        box-shadow: var(--shadow);
+        transform: translateY(-150%);
+        transition: transform 0.3s ease;
+      }
+
+      .nav-links.active {
+        transform: translateY(0);
+      }
+
+      .mobile-menu-btn {
+        display: flex;
+      }
+
+      .mobile-menu-btn.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 6px);
+      }
+
+      .mobile-menu-btn.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .mobile-menu-btn.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -6px);
+      }
+
+      .hero {
+        min-height: 80vh;
+      }
+
+      section {
+        padding: 3rem 1rem;
+      }
+
+      .calculator-section {
+        padding: 2rem 1.5rem;
+      }
+
+      .whatsapp-btn {
+        bottom: 70px;
+        right: 15px;
+        width: 55px;
+        height: 55px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .benefit-card {
+        padding: 2rem 1.5rem;
+      }
+    }
+        /* --- ESTILOS DE BOTONES PREMIUM --- */
+
+    /* 1. Botón Naranja (Para "Ver Catálogo") */
+    .btn-naranja {
+      display: inline-block;
+      background-color: #E07A5F; /* Color Essen */
+      color: #ffffff !important; /* Texto blanco obligado */
+      padding: 15px 35px;        /* Tamaño del botón */
+      border-radius: 50px;       /* Bordes redondos */
+      text-decoration: none;     /* Sin subrayado */
+      font-weight: 700;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 15px rgba(224, 122, 95, 0.4); /* Sombra suave */
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      margin-top: 20px;
+    }
+
+    .btn-naranja:hover {
+      transform: translateY(-3px); /* Se levanta al tocarlo */
+      box-shadow: 0 6px 20px rgba(224, 122, 95, 0.6);
+      background-color: #d66a4e;
+    }
+
+    /* 2. Botón WhatsApp Grande (Para la sección de contacto) */
+    .btn-whatsapp-full {
+      display: inline-block;
+      background-color: #25D366; /* Verde WhatsApp */
+      color: #ffffff !important;
+      padding: 15px 30px;
+      border-radius: 12px;       /* Bordes un poco más cuadrados */
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+      transition: transform 0.2s ease;
+      width: 100%;               /* Que ocupe todo el ancho en móviles */
+      max-width: 300px;          /* Pero que no sea gigante en PC */
+      text-align: center;
+    }
+
+    .btn-whatsapp-full:hover {
+      transform: scale(1.02);
+      background-color: #20bd5a;
+    }
+    /* --- ESTILO OSCURO PARA MENÚ MÓVIL --- */
+    @media (max-width: 768px) {
+      
+      /* 1. La caja del menú (Fondo Oscuro) */
+      .nav-links {
+        background-color: #232536; /* Azul noche muy oscuro */
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5); /* Sombra más fuerte */
+        border-top: 2px solid #E07A5F; /* Línea naranja fina arriba */
+      }
+
+      /* 2. Las letras de los enlaces (Color Claro) */
+      .nav-links a {
+        color: #ffffff !important; /* Fuerza el color blanco */
+        font-size: 1.2rem;         /* Letra un poco más grande */
+        font-weight: 500;
+        padding: 10px 0;
+        
+        /* Línea separadora sutil entre opciones */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+        width: 100%;
+        text-align: center;
+      }
+
+      /* 3. Efecto al tocar una opción */
+      .nav-links a:hover {
+        color: #E07A5F !important; /* Se pone naranja al tocar */
+        background: rgba(255,255,255,0.05); /* Fondo sutil al tocar */
+      }
+      
+      /* Quitamos la línea naranja inferior que tenían antes los links */
+      .nav-links a::after {
+        display: none; 
+      }
+    }
+    /* --- ESTILOS SECCIÓN SOBRE MÍ --- */
+    .about-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 4rem; /* Espacio entre foto y texto */
+      justify-content: center;
+    }
+
+    .about-photo {
+      width: 280px;       /* Tamaño de la foto */
+      height: 280px;
+      object-fit: cover;  /* Para que no se deforme */
+      border-radius: 50%; /* La hace redonda */
+      border: 5px solid #F4F1DE; /* Borde color crema */
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15); /* Sombra suave */
+    }
+
+    .about-text {
+      flex: 1; /* Ocupa el espacio restante */
+      text-align: left;
+    }
+
+    /* Versión para Celular (Uno arriba del otro) */
+    @media (max-width: 768px) {
+      .about-container {
+        flex-direction: column; /* Pone el texto abajo de la foto */
+        text-align: center;
+        gap: 2rem;
+      }
+
+      .about-text {
+        text-align: center;
+      }
+      
+      .about-photo {
+        width: 200px;
+        height: 200px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="#" class="logo">Essen <span>MyD</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#catalogo">Catálogo</a></li>
+        <li><a href="#ahorro">Ahorro</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+    <section class="hero" id="inicio">
+      <div class="hero-content">
+        <h1>Cociná con Amor y Ahorrá en tu Factura</h1>
+        <p>Descubrí la magia de la función horno y transformá tu cocina para siempre</p>
+        
+        <a href="catalogo.pdf" class="btn-naranja" target="_blank">Ver Catálogo</a>
+
+      </div>
+    </section>
+
+  <!-- Benefits Section -->
+  <section id="beneficios">
+    <h2 class="section-title">¿Por qué elegir <span>Essen</span>?</h2>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="benefit-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+          </svg>
+        </div>
+        <h3>Función Horno</h3>
+        <p>Horneá sin necesidad de prender el horno tradicional. Preparás pizzas, tortas y panes en tu cacerola.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12.56 3.5c.45 0 .89.04 1.32.11l-1.41 1.41A6.5 6.5 0 0 0 6 11.5c0 2.11 1.01 3.98 2.56 5.18l-1.42 1.42A8.47 8.47 0 0 1 4 11.5c0-4.72 3.84-8.56 8.56-8zm7.44 8c0-1.59-.44-3.08-1.2-4.35l1.41-1.41A10.46 10.46 0 0 1 22 11.5c0 5.8-4.7 10.5-10.5 10.5-2.08 0-4.02-.61-5.65-1.65l1.41-1.41A8.47 8.47 0 0 0 12.5 20 8.5 8.5 0 0 0 21 11.5H20zM13 7h-2v4H7v2h4v4h2v-4h4v-2h-4V7z"/>
+          </svg>
+        </div>
+        <h3>Ahorro de Gas</h3>
+        <p>Reducí hasta un 50% el consumo de gas gracias al sistema de cocción de Essen.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
+          </svg>
+        </div>
+        <h3>Durabilidad</h3>
+        <p>Garantía de por vida en todas las cacerolas. Calidad premium que pasa de generación en generación.</p>
+      </div>
+    </div>
+  </section>
+  <section id="sobre-mi" style="background-color: #ffffff; padding: 4rem 2rem;">
+    <div class="about-container">
+      
+      <div class="about-image-wrapper">
+        <img src="perfil.jpg" alt="Soy Micaela" class="about-photo" onerror="this.src='https://via.placeholder.com/300x300?text=Tu+Foto'">
+      </div>
+
+      <div class="about-text">
+        <h2 style="font-size: 2rem; color: #E07A5F; margin-bottom: 1rem;">Hola, soy   Micaela ❤️</h2>
+        
+        <p style="font-size: 1.1rem; line-height: 1.8; color: #555; margin-bottom: 1rem;">
+          Más allá de las cacerolas, soy mamá de dos pequeñas que llenan mis días de alegría (y un poquito de caos). 
+        </p>
+        
+        <p style="font-size: 1.1rem; line-height: 1.8; color: #555; margin-bottom: 2rem;">
+          En mis 30 años, descubrí que emprender es la mejor forma de contagiar amor a través de la cocina. Mi misión no es solo venderte una olla, sino ayudarte a crear esos momentos familiares que quedan para siempre.
+        </p>
+
+        <p style="font-family: cursive; font-size: 1.5rem; color: #E07A5F;">¡Gracias por confiar en mí!</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Product Showcase -->
+    <section id="catalogo">
+    <h2 class="section-title">Nuestros <span>Productos Estrella</span></h2>
+    
+    <div class="products-grid">
+      
+      <div class="product-card">
+        <img src="cacerola.jpg" alt="Cacerola Essen 24cm" class="product-image" onerror="this.src='https://via.placeholder.com/300x220?text=Cacerola+24cm'">
+        <div class="product-info">
+          <h3>Cacerola 24cm</h3>
+          <p style="font-size: 0.9rem; color: #666; margin-bottom: 5px;"><strong>Capacidad:</strong> 4,5 Litros (4 comensales)</p>
+          <p style="font-size: 0.85rem; color: #888; margin-bottom: 15px;">La pieza fundamental. Ideal para guisos, carnes, pastas y tortas (función horno).</p>
+          <a href="https://wa.me/+549 11 6570-6324?text=Hola!%20Quiero%20info%20y%20precio%20de%20la%20Cacerola%2024cm" class="btn-secondary" target="_blank">Consultar Precio</a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="sarten.jpg" alt="Sartén Essen 24cm" class="product-image" onerror="this.src='https://via.placeholder.com/300x220?text=Sarten+24cm'">
+        <div class="product-info">
+          <h3>Sartén 24cm</h3>
+          <p style="font-size: 0.9rem; color: #666; margin-bottom: 5px;"><strong>Capacidad:</strong> 2,8 Litros (3 comensales)</p>
+          <p style="font-size: 0.85rem; color: #888; margin-bottom: 15px;">Perfecta para tartas, tortillas, grillados y verduras salteadas. ¡Nada se pega!</p>
+          <a href="https://wa.me/+549 11 6570-6324?text=Hola!%20Quiero%20info%20y%20precio%20de%20la%20Sarten%2024cm" class="btn-secondary" target="_blank">Consultar Precio</a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="flip.jpg" alt="Flip 2.2 Essen" class="product-image" onerror="this.src='https://via.placeholder.com/300x220?text=Flip+2.2'">
+        <div class="product-info">
+          <h3>Flip 2.2</h3>
+          <p style="font-size: 0.9rem; color: #666; margin-bottom: 5px;"><strong>Multifunción:</strong> 2,0 Litros (2 comensales)</p>
+          <p style="font-size: 0.85rem; color: #888; margin-bottom: 15px;">La revolución de tu cocina. Tostados, grillados y tartas vuelta y vuelta en minutos.</p>
+          <a href="https://wa.me/+549 11 6570-6324?text=Hola!%20Quiero%20info%20y%20precio%20de%20la%20Flip" class="btn-secondary" target="_blank">Consultar Precio</a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="set.jpg" alt="Set Completo Essen" class="product-image" onerror="this.src='https://via.placeholder.com/300x220?text=Set+Completo'">
+        <div class="product-info">
+          <h3>Combo Práctico 24</h3>
+          <p style="font-size: 0.9rem; color: #666; margin-bottom: 5px;"><strong>Incluye:</strong> Cacerola + Sartén + Savarín</p>
+          <p style="font-size: 0.85rem; color: #888; margin-bottom: 15px;">Equipá tu cocina completa y ahorrá comprando en combo. ¡Consultá financiación!</p>
+          <a href="https://wa.me/+549 11 6570-6324?text=Hola!%20Quiero%20info%20y%20precio%20del%20Combo%20Practico" class="btn-secondary" target="_blank">Consultar Precio</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Calculator Section -->
+    <section id="ahorro">
+    <h2 class="section-title">Calculá tu <span>Ahorro</span></h2>
+    <div class="calculator-section">
+      
+      <p style="text-align: center; margin-bottom: 25px; color: #555;">
+        El horno consume el equivalente a <strong>3 hornallas al máximo</strong>. <br>
+        Las Essen cocinan lo mismo usando 1 hornalla al mínimo.
+      </p>
+
+      <div class="calculator-form">
+        <div class="form-group">
+          <label for="hoursInput">¿Cuántas horas usás el horno al mes?</label>
+          <input type="number" id="hoursInput" placeholder="Ej: 15 (unas 3 pizzas/tortas por semana)" min="0">
+        </div>
+        
+        <button class="btn" id="calcBtn" type="button">Calcular Ahorro Mensual🍲</button>
+        
+        <div class="result-box" id="resultBox">
+          <p>Dejando de usar el horno, te ahorrarías:</p>
+          <span class="amount" id="savingAmount">$0</span>
+          <p style="font-size: 0.8rem; margin-top: 10px; opacity: 0.8">
+            *Estimado basado en diferencia de consumo gas/luz.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contacto">
+    <h2 class="section-title">¿Tenés <span>Preguntas</span>?</h2>
+    <div class="calculator-section" style="text-align: center;">
+      <p style="margin-bottom: 1.5rem; font-size: 1.1rem;">¡Equipemos tu cocina! Escribime y te ayudo a elegir la Essen que te va a acompañar toda la vida."</p>
+      <a href="https://wa.me/+549 11 6570-6324"?text=Hola%20Mica!%20Quiero%20info%20sobre%20productos%20Essen" class="btn-whatsapp-full" target="_blank">
+  🤳🏼 Hagamos Realidad tu SUEÑO
+</a>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="social-links">
+        <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+          </svg>
+        </a>
+        <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+          </svg>
+        </a>
+      </div>
+      <p>© 2026 Essen MyD. Todos los derechos reservados.</p>
+      <p style="margin-top: 0.5rem; font-size: 0.85rem; opacity: 0.7;">Emprendedora Independiente Essen EIE 381620</p>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/+549 11 6570-6324?text=Hola%20Mica!%20Quiero%20info%20sobre%20productos%20Essen" class="whatsapp-btn" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
+  <!-- Promo Ticker -->
+  <div class="promo-ticker">
+    <div class="ticker-content" id="tickerContent">
+      <span>Cargando promociones...</span>
+    </div>
+  </div>
+
+  <script>
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinks');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenuBtn.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
+
+    // Close menu when clicking a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenuBtn.classList.remove('active');
+        navLinks.classList.remove('active');
+      });
+    });
+
+    // Gas Savings Calculator
+    const calcBtn = document.getElementById('calcBtn');
+    const hoursInput = document.getElementById('hoursInput');
+    const resultBox = document.getElementById('resultBox');
+    const savingAmount = document.getElementById('savingAmount');
+
+    calcBtn.addEventListener('click', () => {
+      const hours = parseFloat(hoursInput.value) || 0;
+      const saving = hours * 400;
+      
+      savingAmount.textContent = `$${saving.toLocaleString('es-AR')}`;
+      resultBox.classList.add('show');
+    });
+
+    // Allow Enter key to trigger calculation
+    hoursInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        calcBtn.click();
+      }
+    });
+    /* --- INICIO DEL CÓDIGO NUEVO --- */
+    const tickerContent = document.getElementById('tickerContent'); // Asegurate que en tu HTML el ID sea este
+    
+    // Texto de respaldo por si falla la carga
+    const defaultPromo = "✨ Consultá por 12 cuotas sin interés y envíos gratis ✨ Garantía de por vida ✨";
+
+    async function loadPromos() {
+      try {
+        const response = await fetch('./promos.json');
+        
+        if (!response.ok) {
+          throw new Error('No se pudo cargar el archivo JSON');
+        }
+
+        const data = await response.json();
+
+        // AQUÍ ESTABA EL ERROR: Ahora verificamos si "data" es una lista directamente
+        if (Array.isArray(data) && data.length > 0) {
+          
+          // Unimos tus frases del JSON con estrellitas
+          const promoText = data.map(msg => `✨ ${msg}`).join('  ');
+          
+          // Mantenemos la estructura de SPAN doble para que la animación funcione
+          tickerContent.innerHTML = `<span>${promoText}</span><span>${promoText}</span>`;
+          
+        } else {
+          throw new Error('El JSON está vacío o mal formado');
+        }
+
+      } catch (error) {
+        console.error(error);
+        // Si falla, mostramos el texto por defecto
+        tickerContent.innerHTML = `<span>${defaultPromo}</span><span>${defaultPromo}</span>`;
+      }
+    }
+
+    // Ejecutar la función
+    loadPromos();
+    /* --- FIN DEL CÓDIGO NUEVO --- */
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
