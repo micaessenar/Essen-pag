@@ -1,0 +1,9 @@
+instrucciones para mica para modificar promos 
+entrar a promos.json
+no entrar a otro xq sino no funcionaran o son imagenes.
+al entrar a los archivos solo cambiar en terminos de oraciones dentro de las comillas.
+por ejemplo cambiar: "promo de julio 20% de descuento.", 
+cambiar lo de dentro de las comillas y terminar la oracion con un punto final.
+asi deberia quedar: "promos de agosto 30% de descuento.",
+no borrar el punto final, ni la comilla, ni la coma final.
+sino copiar la oracion anterior y cambiar lo que esta dentro de las comillas.
